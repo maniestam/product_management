@@ -1,0 +1,252 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "productmanagement",
+		"description": "productmanagement",
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"host": "localhost:3002",
+	"basePath": "/",
+	"tags": [
+		{
+			"name": "productmangement",
+			"description": "API for Managing the product data"
+		}
+	],
+	"schemes": [
+		"http",
+		"https"
+	],
+	"consumes": [
+		"application/json",
+		"multipart/form-data"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		
+		"/api/product/getProductyId": {
+			"post": {
+				"description": "To getproduct",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "Id",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ById"
+						}
+					}
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"403": {
+						"description": "You do not have necessary permissions for the resource",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"tags": [
+					"productmanagement"
+				]
+			}
+		},
+		"/api/product/postProductData": {
+			"post": {
+				"description": "To pos products",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "details",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/details"
+						}
+					}
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"403": {
+						"description": "You do not have necessary permissions for the resource",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"tags": [
+					"productmanagement"
+				]
+			}
+		},
+		"/api/product/getAllProducts": {
+			"post": {
+				"description": "To all products",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "list",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/list"
+						}
+					}
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"403": {
+						"description": "You do not have necessary permissions for the resource",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"tags": [
+					"productmanagement"
+				]
+			}
+		},
+		"/api/product/updateProduct": {
+			"post": {
+				"description": "update product",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "ById",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ById"
+						}
+					}
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"403": {
+						"description": "You do not have necessary permissions for the resource",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"tags": [
+					"productmanagement"
+				]
+			}
+		},
+		"/api/product/deleteProduct": {
+			"put": {
+				"description": "To delete product",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "ById",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ById"
+						}
+					}
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"403": {
+						"description": "You do not have necessary permissions for the resource",
+						"schema": {
+							"type": "object"
+						}
+					}
+				},
+				"tags": [
+					"productmanagement"
+				]
+			}
+		}
+
+	},
+	"definitions": {
+		
+		"ById": {
+			"type": "object",
+			"properties": {
+				"Id": {
+					"type": "string"
+				}
+				
+			}
+		},
+		"details": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"product_code": {
+					"type": "string"
+				},
+				"role_uuid": {
+					"type": "number"
+				}
+			}
+		},
+		"list": {
+			"type": "object",
+			"properties": {
+				"sortField": {
+					"type": "string"
+				},
+				"sortOrder": {
+					"type": "string"
+				}
+			}
+		}
+			}
+}
